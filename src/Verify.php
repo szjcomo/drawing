@@ -166,7 +166,6 @@ class Verify extends AbstractDrawing
 	 */
 	public function __destruct()
 	{
-		echo '析构函数执行'.PHP_EOL;
 		if($this->im) imagedestroy($this->im);
 	}
 
