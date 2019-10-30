@@ -62,9 +62,16 @@ class Verify extends AbstractDrawing
 	{
 		if(isset($this->config['callback'])){
 			return call_user_func($this->config['callback'],$this->im);
-		} else {
+		} else if(isset($this->config['filename'])) {
 			if(isset($this->config['filename'])) imagejpeg($this->im,$this->config['filename'],$this->config['quality']);
 			return $this->config['filename'];
+		} else {
+			ob_start();
+			imagejpeg($this->im);
+			$file = ob_get_contents();
+			ob_end_clean();
+			$base64Data = base64_encode($file);
+			return 'data:jpeg;base64,'.$base64Data;
 		}
 	}
 
