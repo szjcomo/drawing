@@ -38,7 +38,7 @@ class Verify extends AbstractDrawing
 	public function __construct(array $config = [])
 	{
 		putenv('GDFONTPATH=' . realpath('.'));
-		if(!isset($config['font'])) $this->config['font'] = str_replace('\\','/',dirname(__DIR__)).'/en.ttf';
+		if(!isset($config['font'])) $this->config['font'] = str_replace('\\','/',dirname(__DIR__)).'/font.ttf';
 		$this->config = array_merge($this->config,$config);
 	}
 	/**

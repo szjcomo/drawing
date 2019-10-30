@@ -11,6 +11,8 @@
 require './vendor/autoload.php';
 
 use szjcomo\drawing\Drawing;
+use szjcomo\drawing\verify\General;
+use szjcomo\drawing\verify\Express;
 
 
 //测试用例
@@ -33,8 +35,14 @@ use szjcomo\drawing\Drawing;
 	'filename'=>'' 			   //图片保存路径 如果不传filename 和 callback都不传 那么返回base64的字符串
 	'callback'=>null    	   //如果传入了callback 那么用户自己处理 否则请传入filename自行保存
 */
-
-$imgstr = Drawing::create(['text'=>mt_rand(1,9).' + '.mt_rand(1,9)]);
-
+//获取普通 验证码(2-9a-zA-Z)
+$text = General::getCode();
+$imgstr = Drawing::create(['text'=>$text]);
 echo $imgstr.PHP_EOL;
+//获取数学表达式验证码
+$arr = Express::getCode();
+print_r($arr);//['text'=>'1+2','result'=>3]
+$imgstr = Drawing::create(['text'=>$arr['text']]);
+echo $imgstr.PHP_EOL;
+
 
