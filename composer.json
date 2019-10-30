@@ -1,0 +1,26 @@
+{
+    "name": "szjcomo/drawing",
+    "description": "php方式验证码库",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "szjcomo",
+            "email": "814655481@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "szjcomo\\drawing\\": "src/"
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    }
+}
